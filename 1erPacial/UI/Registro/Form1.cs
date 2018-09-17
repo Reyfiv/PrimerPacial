@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _1erPacial
+namespace _1erPacial.UI.Registro
 {
     public partial class Form1 : Form
     {
