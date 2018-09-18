@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _1erPacial.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -7,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace PrimerPacial.DAL
 {
-    class contexto : DbContext
+    public class Contexto : DbContext
     {
-        public DbSet<>  { get; set; }
+        public DbSet<Vendedores> Vendedores { get; set; }
 
-        public contexto() : base("ConStr")
+        public Contexto() : base("ConStr")
         { }
-    {
     }
+
 }
+

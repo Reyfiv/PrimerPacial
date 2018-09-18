@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _1erPacial.UI.Registro;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace _1erPacial
         public Principal()
         {
             InitializeComponent();
+        }
+
+        private void vendedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rVendedores rVendedores = new rVendedores();
+            rVendedores.Show();
         }
     }
 }
