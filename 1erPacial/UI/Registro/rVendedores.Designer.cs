@@ -44,6 +44,8 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.PorcientoRetencionNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.SueldoNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.FechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.VendedorIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PorcientoRetencionNumericUpDown)).BeginInit();
@@ -66,7 +68,7 @@
             // 
             this.Eliminarbutton.Image = global::_1erPacial.Properties.Resources.Delete_32px;
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(245, 277);
+            this.Eliminarbutton.Location = new System.Drawing.Point(243, 320);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(85, 50);
             this.Eliminarbutton.TabIndex = 6;
@@ -79,7 +81,7 @@
             // 
             this.Guardarbutton.Image = global::_1erPacial.Properties.Resources.Save_32px;
             this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Guardarbutton.Location = new System.Drawing.Point(130, 277);
+            this.Guardarbutton.Location = new System.Drawing.Point(128, 320);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(85, 50);
             this.Guardarbutton.TabIndex = 5;
@@ -92,7 +94,7 @@
             // 
             this.Nuevobutton.Image = global::_1erPacial.Properties.Resources.New_32px;
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(12, 277);
+            this.Nuevobutton.Location = new System.Drawing.Point(10, 320);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(85, 50);
             this.Nuevobutton.TabIndex = 4;
@@ -200,11 +202,32 @@
             this.SueldoNumericUpDown.Size = new System.Drawing.Size(153, 20);
             this.SueldoNumericUpDown.TabIndex = 19;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label6.Location = new System.Drawing.Point(25, 258);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 17);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Fecha";
+            // 
+            // FechaDateTimePicker
+            // 
+            this.FechaDateTimePicker.CustomFormat = "dd/MM/yy";
+            this.FechaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.FechaDateTimePicker.Location = new System.Drawing.Point(147, 258);
+            this.FechaDateTimePicker.Name = "FechaDateTimePicker";
+            this.FechaDateTimePicker.Size = new System.Drawing.Size(153, 20);
+            this.FechaDateTimePicker.TabIndex = 21;
+            // 
             // rVendedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 348);
+            this.ClientSize = new System.Drawing.Size(353, 382);
+            this.Controls.Add(this.FechaDateTimePicker);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.SueldoNumericUpDown);
             this.Controls.Add(this.PorcientoRetencionNumericUpDown);
             this.Controls.Add(this.RetencionTextBox);
@@ -247,5 +270,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.NumericUpDown PorcientoRetencionNumericUpDown;
         private System.Windows.Forms.NumericUpDown SueldoNumericUpDown;
+        private System.Windows.Forms.DateTimePicker FechaDateTimePicker;
+        private System.Windows.Forms.Label label6;
     }
 }

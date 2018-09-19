@@ -1,4 +1,5 @@
-﻿using _1erPacial.UI.Registro;
+﻿using _1erPacial.UI.Consulta;
+using _1erPacial.UI.Registro;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,12 @@ namespace _1erPacial
         {
             rVendedores rVendedores = new rVendedores();
             rVendedores.Show();
+        }
+
+        private void vendedoresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cVendedores cVendedores = new cVendedores();
+            cVendedores.Show();
         }
     }
 }

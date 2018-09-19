@@ -15,6 +15,7 @@ namespace _1erPacial.Entidades
         public decimal Sueldo { get; set; }
         public decimal PorcientoRetencion { get; set; }
         public decimal Retencion { get; set; }
+        public DateTime Fecha { get; set; }
 
 
         public Vendedores()
@@ -24,6 +25,7 @@ namespace _1erPacial.Entidades
             Sueldo = 0;
             PorcientoRetencion = 0;
             Retencion = 0;
+            Fecha = DateTime.Now;
         }
 
     }

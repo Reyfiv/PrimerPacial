@@ -31,6 +31,7 @@ namespace _1erPacial.UI.Registro
             SueldoNumericUpDown.Value = 0;
             PorcientoRetencionNumericUpDown.Value = 0;
             RetencionTextBox.Clear();
+            FechaDateTimePicker.Value = DateTime.Now;
         }
 
 
@@ -47,6 +48,7 @@ namespace _1erPacial.UI.Registro
             vendedor.Sueldo = Convert.ToDecimal(SueldoNumericUpDown.Value);
             vendedor.PorcientoRetencion = Convert.ToDecimal(PorcientoRetencionNumericUpDown.Value);
             vendedor.Retencion = Convert.ToDecimal(RetencionTextBox.Text);
+            vendedor.Fecha = FechaDateTimePicker.Value;
             return vendedor;
         }
 
@@ -118,6 +120,7 @@ namespace _1erPacial.UI.Registro
                 SueldoNumericUpDown.Value = vendedor.Sueldo;
                 PorcientoRetencionNumericUpDown.Value = vendedor.PorcientoRetencion;
                 RetencionTextBox.Text = vendedor.Retencion.ToString();
+                FechaDateTimePicker.Value = vendedor.Fecha;
             }
         }
 

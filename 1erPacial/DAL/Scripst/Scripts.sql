@@ -1,10 +1,6 @@
-CREATE DATABASE PrimerParcialDb
+CREATE DATABASE Parcial1Db
 GO
-USE PrimerParcialDb
+USE Parcial1Db
 GO
-
-
-
-
 
 

@@ -63,6 +63,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Consulta\cVendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consulta\cVendedores.Designer.cs">
+      <DependentUpon>cVendedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registro\rVendedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Consulta\cVendedores.resx">
+      <DependentUpon>cVendedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Registro\rVendedores.resx">
       <DependentUpon>rVendedores.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,7 +109,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UI\Consulta\" />
     <Folder Include="UI\Reportes\" />
   </ItemGroup>
   <ItemGroup>
