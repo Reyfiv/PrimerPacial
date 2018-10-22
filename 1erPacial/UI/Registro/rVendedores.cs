@@ -1,5 +1,6 @@
 ﻿using _1erPacial.BLL;
 using _1erPacial.Entidades;
+using PrimerPacial.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace _1erPacial.UI.Registro
 {
     public partial class rVendedores : Form
     {
+        RepositorioBase<Vendedores> repositorio;
         public rVendedores()
         {
             InitializeComponent();
@@ -65,12 +67,14 @@ namespace _1erPacial.UI.Registro
 
         private bool ExisteEnLaBaseDeDatos()
         {
-            Vendedores vendedor = BLL.VendedoresBLL.Buscar((int)VendedorIdNumericUpDown.Value);
+            repositorio = new RepositorioBase<Vendedores>(new Contexto());
+            Vendedores vendedor = repositorio.Buscar((int)VendedorIdNumericUpDown.Value);
             return (vendedor != null);
         }
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
+            repositorio = new RepositorioBase<Vendedores>(new Contexto());
             Vendedores vendedor;
             bool paso = false;
             if (Validar())
@@ -81,7 +85,7 @@ namespace _1erPacial.UI.Registro
             vendedor = LlenaClase();
 
             if (VendedorIdNumericUpDown.Value == 0)
-                paso = VendedoresBLL.Guardar(vendedor);
+                paso = repositorio.Guardar(vendedor);
             else
             {
                 if (!ExisteEnLaBaseDeDatos())
@@ -89,7 +93,7 @@ namespace _1erPacial.UI.Registro
                     MessageBox.Show("El Vendedor no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                paso = VendedoresBLL.Guardar(vendedor);
+                paso = repositorio.Guardar(vendedor);
             }
             Limpiar();
 
@@ -101,8 +105,9 @@ namespace _1erPacial.UI.Registro
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
+            repositorio = new RepositorioBase<Vendedores>(new Contexto());
             int id = Convert.ToInt32(VendedorIdNumericUpDown.Value);
-            if (BLL.VendedoresBLL.Eliminar(id))
+            if (repositorio.Eliminar(id))
             {
                 MessageBox.Show("Eliminado", "Exito!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -112,8 +117,9 @@ namespace _1erPacial.UI.Registro
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
+            repositorio = new RepositorioBase<Vendedores>(new Contexto());
             int id = Convert.ToInt32(VendedorIdNumericUpDown.Value);
-            Vendedores vendedor = BLL.VendedoresBLL.Buscar(id);
+            Vendedores vendedor = repositorio.Buscar(id);
             if (vendedor != null)
             {
                 NombresTextBox.Text = vendedor.Nombres;
