@@ -16,30 +16,57 @@ namespace _1erPacial.UI.Registro
     public partial class rVendedores : Form
     {
         RepositorioBase<Vendedores> repositorio;
+
+        public List<MetaDetalle> Detalle { get; set; }
+
         public rVendedores()
         {
             InitializeComponent();
+            this.Detalle = new List<MetaDetalle>();
+            LlenaCombo();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+
+        private void CargarGrid()
         {
-
+            CuotaDataGridView.DataSource = null;
+            CuotaDataGridView.DataSource = this.Detalle;
         }
+
 
         private void Limpiar()
         {
+            errorProvider1.Clear();
+
             VendedorIdNumericUpDown.Value = 0;
             NombresTextBox.Clear();
             SueldoNumericUpDown.Value = 0;
             PorcientoRetencionNumericUpDown.Value = 0;
             RetencionTextBox.Clear();
             FechaDateTimePicker.Value = DateTime.Now;
+
+            this.Detalle = new List<MetaDetalle>();
+            CargarGrid();
         }
 
 
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void LlenaCampo(Vendedores vendedores)
+        {
+            VendedorIdNumericUpDown.Value = vendedores.VendedorId;
+            NombresTextBox.Text = vendedores.Nombres;
+            SueldoNumericUpDown.Value = vendedores.Sueldo;
+            PorcientoRetencionNumericUpDown.Value = vendedores.PorcientoRetencion;
+            RetencionTextBox.Text = Convert.ToString(vendedores.Retencion);
+            FechaDateTimePicker.Value = vendedores.Fecha;
+
+            this.Detalle = vendedores.Cuota;
+            CargarGrid();
+           
         }
 
         private Vendedores LlenaClase()
@@ -51,6 +78,8 @@ namespace _1erPacial.UI.Registro
             vendedor.PorcientoRetencion = Convert.ToDecimal(PorcientoRetencionNumericUpDown.Value);
             vendedor.Retencion = Convert.ToDecimal(RetencionTextBox.Text);
             vendedor.Fecha = FechaDateTimePicker.Value;
+
+            vendedor.Cuota = this.Detalle; 
             return vendedor;
         }
 
@@ -65,11 +94,35 @@ namespace _1erPacial.UI.Registro
             return validar;
         }
 
+        private bool ValidarDetalle()
+        {
+            bool validarDetalle = false;
+            errorProvider1.Clear();
+
+            if (String.IsNullOrWhiteSpace(CuotaTextBox.Text))
+            {
+                errorProvider1.SetError(CuotaTextBox, "La Cuota esta vacia");
+                validarDetalle = true;
+            }
+
+            return validarDetalle;
+        }
+
         private bool ExisteEnLaBaseDeDatos()
         {
             repositorio = new RepositorioBase<Vendedores>(new Contexto());
             Vendedores vendedor = repositorio.Buscar((int)VendedorIdNumericUpDown.Value);
             return (vendedor != null);
+        }
+
+        private void LlenaCombo()
+        {
+
+            var MetaRepositorio = new RepositorioBase<MetaDetalle>(new Contexto());
+            var lista = MetaRepositorio.GetList(c => true);
+            MetasComboBox.DataSource = lista;
+            MetasComboBox.ValueMember = "MetaId";
+            MetasComboBox.DisplayMember = "Descripcion";
         }
 
         private void Guardarbutton_Click(object sender, EventArgs e)
@@ -93,7 +146,7 @@ namespace _1erPacial.UI.Registro
                     MessageBox.Show("El Vendedor no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                paso = repositorio.Guardar(vendedor);
+                paso = repositorio.Modificar(vendedor);
             }
             Limpiar();
 
@@ -127,6 +180,7 @@ namespace _1erPacial.UI.Registro
                 PorcientoRetencionNumericUpDown.Value = vendedor.PorcientoRetencion;
                 RetencionTextBox.Text = vendedor.Retencion.ToString();
                 FechaDateTimePicker.Value = vendedor.Fecha;
+                CuotaDataGridView.DataSource = vendedor.Cuota;
             }
         }
 
@@ -148,6 +202,46 @@ namespace _1erPacial.UI.Registro
                 calculo = SueldoNumericUpDown.Value / PorcientoRetencionNumericUpDown.Value * 100;
                 RetencionTextBox.Text = calculo.ToString();
             }
+        }
+
+        private void AgregarButton_Click(object sender, EventArgs e)
+        {
+            if (CuotaDataGridView.DataSource != null)
+                this.Detalle = (List<MetaDetalle>)CuotaDataGridView.DataSource;
+
+            if (ValidarDetalle())
+            {
+                MessageBox.Show("Favor revisar todos los campos", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            this.Detalle.Add(
+                new MetaDetalle(
+                    metaId: 0,
+                    vendedorId: 0,
+                    descripcion: MetasComboBox.Text,
+                    cuota: Convert.ToDecimal(CuotaTextBox.Text)
+                    ));
+            CargarGrid();
+            CuotaTextBox.Focus();
+            CuotaTextBox.Clear();
+        }
+
+        private void RemoverFilaButton_Click(object sender, EventArgs e)
+        {
+            if (CuotaDataGridView.Rows.Count > 0 && CuotaDataGridView.CurrentRow != null)
+            {
+                Detalle.RemoveAt(CuotaDataGridView.CurrentRow.Index);
+
+                CargarGrid();
+            }
+        }
+
+        private void MasMetasButton_Click(object sender, EventArgs e)
+        {
+            rMetas rMetas = new rMetas();
+            rMetas.ShowDialog();
+            LlenaCombo();
         }
     }
 }

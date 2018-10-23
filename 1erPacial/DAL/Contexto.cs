@@ -12,6 +12,7 @@ namespace PrimerPacial.DAL
     {
         public DbSet<Vendedores> Vendedores { get; set; }
 
+
         public Contexto() : base("ConStr")
         { }
     }

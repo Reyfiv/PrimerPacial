@@ -55,6 +55,7 @@
     <Compile Include="BLL\IRepository.cs" />
     <Compile Include="BLL\RepositorioBase.cs" />
     <Compile Include="DAL\Contexto.cs" />
+    <Compile Include="Entidades\MetaDetalle.cs" />
     <Compile Include="Entidades\Vendedores.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -69,6 +70,12 @@
     </Compile>
     <Compile Include="UI\Consulta\cVendedores.Designer.cs">
       <DependentUpon>cVendedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registro\rMetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registro\rMetas.Designer.cs">
+      <DependentUpon>rMetas.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Registro\rVendedores.cs">
       <SubType>Form</SubType>
@@ -92,6 +99,9 @@
     <EmbeddedResource Include="UI\Consulta\cVendedores.resx">
       <DependentUpon>cVendedores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registro\rMetas.resx">
+      <DependentUpon>rMetas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Registro\rVendedores.resx">
       <DependentUpon>rVendedores.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,7 +117,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UI\Reportes\" />
@@ -123,6 +135,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Search_20px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\removerFila_25px.png" />
+    <None Include="Resources\Plus_20px.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DAL\Scripst\Scripts.sql" />

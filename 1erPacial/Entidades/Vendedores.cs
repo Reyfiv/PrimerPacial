@@ -16,6 +16,9 @@ namespace _1erPacial.Entidades
         public decimal PorcientoRetencion { get; set; }
         public decimal Retencion { get; set; }
         public DateTime Fecha { get; set; }
+        
+
+        public virtual List<MetaDetalle> Cuota { get; set; }
 
 
         public Vendedores()
@@ -26,6 +29,7 @@ namespace _1erPacial.Entidades
             PorcientoRetencion = 0;
             Retencion = 0;
             Fecha = DateTime.Now;
+            Cuota = new List<MetaDetalle>();
         }
 
     }
