@@ -25,7 +25,7 @@ namespace _1erPacial.UI.Registro
         {
             MetaDetalle metaDetalle = new MetaDetalle();
             metaDetalle.MetaId = Convert.ToInt32(MetaIdNumericUpDown.Value);
-            metaDetalle.VendedorId = Convert.ToInt32(VendedorIdNumericUpDown.Value);
+           
             metaDetalle.Descripcion = DescripcionTextBox.Text;
             metaDetalle.Cuota = Convert.ToInt32(CuotaTextBox.Text);
             return metaDetalle;
@@ -44,7 +44,7 @@ namespace _1erPacial.UI.Registro
             else
             {
              
-                paso = repositorio.Modificar(metaDetalle);
+                paso = repositorio.Guardar(metaDetalle);
             }
            
 

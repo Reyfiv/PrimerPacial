@@ -35,10 +35,7 @@
             this.DescripcionTextBox = new System.Windows.Forms.TextBox();
             this.CuotaTextBox = new System.Windows.Forms.TextBox();
             this.GuardarButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.VendedorIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.MetaIdNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VendedorIdNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // MetaId
@@ -55,7 +52,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(22, 90);
+            this.label2.Location = new System.Drawing.Point(22, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 17);
             this.label2.TabIndex = 1;
@@ -65,7 +62,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(22, 127);
+            this.label1.Location = new System.Drawing.Point(22, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 2;
@@ -80,14 +77,14 @@
             // 
             // DescripcionTextBox
             // 
-            this.DescripcionTextBox.Location = new System.Drawing.Point(130, 89);
+            this.DescripcionTextBox.Location = new System.Drawing.Point(130, 62);
             this.DescripcionTextBox.Name = "DescripcionTextBox";
             this.DescripcionTextBox.Size = new System.Drawing.Size(120, 20);
             this.DescripcionTextBox.TabIndex = 4;
             // 
             // CuotaTextBox
             // 
-            this.CuotaTextBox.Location = new System.Drawing.Point(130, 127);
+            this.CuotaTextBox.Location = new System.Drawing.Point(130, 100);
             this.CuotaTextBox.Name = "CuotaTextBox";
             this.CuotaTextBox.Size = new System.Drawing.Size(120, 20);
             this.CuotaTextBox.TabIndex = 5;
@@ -105,30 +102,11 @@
             this.GuardarButton.UseVisualStyleBackColor = true;
             this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(22, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 17);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "VendedorId";
-            // 
-            // VendedorIdNumericUpDown
-            // 
-            this.VendedorIdNumericUpDown.Location = new System.Drawing.Point(130, 57);
-            this.VendedorIdNumericUpDown.Name = "VendedorIdNumericUpDown";
-            this.VendedorIdNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.VendedorIdNumericUpDown.TabIndex = 8;
-            // 
             // rMetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 230);
-            this.Controls.Add(this.VendedorIdNumericUpDown);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.CuotaTextBox);
             this.Controls.Add(this.DescripcionTextBox);
@@ -139,7 +117,6 @@
             this.Name = "rMetas";
             this.Text = "rMetas";
             ((System.ComponentModel.ISupportInitialize)(this.MetaIdNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VendedorIdNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,7 +131,5 @@
         private System.Windows.Forms.TextBox DescripcionTextBox;
         private System.Windows.Forms.TextBox CuotaTextBox;
         private System.Windows.Forms.Button GuardarButton;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown VendedorIdNumericUpDown;
     }
 }

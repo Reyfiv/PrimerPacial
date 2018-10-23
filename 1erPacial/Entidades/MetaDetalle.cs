@@ -11,14 +11,14 @@ namespace _1erPacial.Entidades
     {
         [Key]
         public int MetaId { get; set; }
-        public int VendedorId { get; set; }
+        
         public string Descripcion { get; set; }
         public decimal Cuota { get; set; }
 
-        public MetaDetalle(int metaId, int vendedorId, string descripcion, decimal cuota)
+        public MetaDetalle(int metaId, string descripcion, decimal cuota)
         {
             MetaId = metaId;
-            VendedorId = vendedorId;
+          
             Descripcion = descripcion;
             Cuota = cuota;
         }
@@ -26,7 +26,7 @@ namespace _1erPacial.Entidades
         public MetaDetalle()
         {
             MetaId = 0;
-            VendedorId = 0;
+            
             Descripcion = string.Empty;
             Cuota = 0;
         }

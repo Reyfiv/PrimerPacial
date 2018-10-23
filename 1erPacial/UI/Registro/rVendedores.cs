@@ -218,7 +218,7 @@ namespace _1erPacial.UI.Registro
             this.Detalle.Add(
                 new MetaDetalle(
                     metaId: 0,
-                    vendedorId: 0,
+                    
                     descripcion: MetasComboBox.Text,
                     cuota: Convert.ToDecimal(CuotaTextBox.Text)
                     ));
